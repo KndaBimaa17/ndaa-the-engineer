@@ -130,3 +130,23 @@ setTimeout(function () {
 console.log("Image element: ", imgElement);
 console.log("Current image index: ", currentImageIndex);
 console.log("Image source: ", images[currentImageIndex]);
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".contact-form form");
+  const emailInput = document.getElementById("email");
+
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  form.addEventListener("submit", function (event) {
+    const email = emailInput.value.trim();
+    if (!validateEmail(email)) {
+      event.preventDefault();
+      alert("Please enter a valid email address.");
+    }
+  });
+});
+
+
