@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Let`s Go - mySpace</title>
+    <title>mySpace</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,34 +15,31 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
   </head>
   <body>
     <!-- Navbar -->
     <header>
       <nav class="navbar">
         <div class="navbar-logo">
-          <!-- <a href="#"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="30"
-              fill="currentColor"
-              class="bi bi-boxes"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434zM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567zM7.5 9.933l-2.75 1.571v3.134l2.75-1.571zm1 3.134 2.75 1.571v-3.134L8.5 9.933zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567zm2.242-2.433V3.504L8.5 5.076V8.21zM7.5 8.21V5.076L4.75 3.504v3.134zM5.258 2.643 8 4.21l2.742-1.567L8 1.076zM15 9.933l-2.75 1.571v3.134L15 13.067zM3.75 14.638v-3.134L1 9.933v3.134z"
-              /></svg><span>Let`s Go</span>
-          </a> -->
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-boxes" viewBox="0 0 16 16">
+              <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434zM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567zM7.5 9.933l-2.75 1.571v3.134l2.75-1.571zm1 3.134 2.75 1.571v-3.134L8.5 9.933zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567zm2.242-2.433V3.504L8.5 5.076V8.21zM7.5 8.21V5.076L4.75 3.504v3.134zM5.258 2.643 8 4.21l2.742-1.567L8 1.076zM15 9.933l-2.75 1.571v3.134L15 13.067zM3.75 14.638v-3.134L1 9.933v3.134z"/>
+            </svg>
+            <span>mySpace.</span>
+          </a>
         </div>
-
-        <div class="navbar-nav" active>
-          <a href="#">Home</a>
-          <a href="#about">About Me</a>
-          <a href="#projects">My Projects</a>
-          <a href="#contact">Contact Me</a>
+    
+        <div class="navbar-nav">
+          <a href="#hero" class="active">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
         </div>
-
+    
         <div class="navbar-clock">
           <div id="clock">
             <p id="date-time"></p>
@@ -50,6 +47,7 @@
         </div>
       </nav>
     </header>
+    
     <main>
       <!-- Hero Section -->
       <section id="hero">
@@ -61,7 +59,8 @@
               </p>
               <p class="hero-p">Welcome to my Personal Website</p>
               <p id="hero-p-2"></p>
-              <a href="#contact" class="hero-cta">Get Started 🚀</a>
+              <a href="#about" class="hero-cta">Get Started 🚀</a>
+              <a href="#contact" class="hero-cta">Reach Me Out 📧</a>
             </div>
           </div>
           <div id="hero-image-container">
@@ -194,25 +193,25 @@
               <img src="./assets/img/img-5.png" alt="Songs Recomendations" />
               <div class="inner-pi">
                 <h3>Simple Restaurant Website</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Pariatur, quas velit temporibus impedit dolore cum nulla
-                accusantium. Cupiditate, adipisci ratione!
-              </p>
-              <a
-                href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
-                class="cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
-                class="cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Source Code</a
-              >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Pariatur, quas velit temporibus impedit dolore cum nulla
+                  accusantium. Cupiditate, adipisci ratione!
+                </p>
+                <a
+                  href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
+                  class="cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
+                  class="cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Source Code</a
+                >
               </div>
             </div>
             <!-- 2 -->
@@ -220,25 +219,25 @@
               <img src="./assets/img/img-5.png" alt="Songs Recomendations" />
               <div class="inner-pi">
                 <h3>Simple Restaurant Website</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Pariatur, quas velit temporibus impedit dolore cum nulla
-                accusantium. Cupiditate, adipisci ratione!
-              </p>
-              <a
-                href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
-                class="cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
-                class="cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Source Code</a
-              >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Pariatur, quas velit temporibus impedit dolore cum nulla
+                  accusantium. Cupiditate, adipisci ratione!
+                </p>
+                <a
+                  href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
+                  class="cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
+                  class="cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Source Code</a
+                >
               </div>
             </div>
             <!-- 3 -->
@@ -246,25 +245,25 @@
               <img src="./assets/img/img-5.png" alt="Songs Recomendations" />
               <div class="inner-pi">
                 <h3>Simple Restaurant Website</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Pariatur, quas velit temporibus impedit dolore cum nulla
-                accusantium. Cupiditate, adipisci ratione!
-              </p>
-              <a
-                href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
-                class="cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
-                class="cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Source Code</a
-              >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Pariatur, quas velit temporibus impedit dolore cum nulla
+                  accusantium. Cupiditate, adipisci ratione!
+                </p>
+                <a
+                  href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
+                  class="cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
+                  class="cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Source Code</a
+                >
               </div>
             </div>
             <!-- 4 -->
@@ -272,25 +271,25 @@
               <img src="./assets/img/img-5.png" alt="Songs Recomendations" />
               <div class="inner-pi">
                 <h3>Simple Restaurant Website</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Pariatur, quas velit temporibus impedit dolore cum nulla
-                accusantium. Cupiditate, adipisci ratione!
-              </p>
-              <a
-                href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
-                class="cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
-                class="cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Source Code</a
-              >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Pariatur, quas velit temporibus impedit dolore cum nulla
+                  accusantium. Cupiditate, adipisci ratione!
+                </p>
+                <a
+                  href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
+                  class="cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
+                  class="cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Source Code</a
+                >
               </div>
             </div>
             <!-- 5 -->
@@ -298,25 +297,25 @@
               <img src="./assets/img/img-5.png" alt="Songs Recomendations" />
               <div class="inner-pi">
                 <h3>Simple Restaurant Website</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Pariatur, quas velit temporibus impedit dolore cum nulla
-                accusantium. Cupiditate, adipisci ratione!
-              </p>
-              <a
-                href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
-                class="cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
-                class="cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Source Code</a
-              >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Pariatur, quas velit temporibus impedit dolore cum nulla
+                  accusantium. Cupiditate, adipisci ratione!
+                </p>
+                <a
+                  href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
+                  class="cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
+                  class="cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Source Code</a
+                >
               </div>
             </div>
             <!-- 6 -->
@@ -324,25 +323,25 @@
               <img src="./assets/img/img-5.png" alt="Songs Recomendations" />
               <div class="inner-pi">
                 <h3>Simple Restaurant Website</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Pariatur, quas velit temporibus impedit dolore cum nulla
-                accusantium. Cupiditate, adipisci ratione!
-              </p>
-              <a
-                href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
-                class="cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
-                class="cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Source Code</a
-              >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Pariatur, quas velit temporibus impedit dolore cum nulla
+                  accusantium. Cupiditate, adipisci ratione!
+                </p>
+                <a
+                  href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
+                  class="cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
+                  class="cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Source Code</a
+                >
               </div>
             </div>
           </div>
@@ -402,19 +401,22 @@
           </div>
         </div>
       </section>
-      <input type="">
+      <input type="" />
 
       <!-- Contact Section -->
-      <section id="contact" class="contact-form">
+      <section id="contact">
         <h2>Contact Me</h2>
-        <form>
+        <form
+          id="my-form"
+          action="https://formspree.io/f/mwkggljb"
+          method="POST"
+        >
           <input type="text" name="name" placeholder="Your Name" required />
           <input
             id="email"
-            type="email"
+            type="text"
             name="email"
             placeholder="Your Email"
-            required
           />
           <textarea
             name="message"
@@ -423,11 +425,14 @@
             required
           ></textarea>
           <button id="submit" type="submit">Send Message</button>
+          <p id="my-form-status"></p>
         </form>
       </section>
     </main>
     <!-- SCROLL BUTTON -->
-    <button id="scrollButton" onclick="scrollToTop()"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+    <button id="scrollButton" onclick="scrollToTop()">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
     <!-- BUTTTON END -->
 
     <!-- FOOTER AND COPYRIGHT -->
@@ -446,15 +451,18 @@
       <div class="popup-content">
         <div class="profile">
           <img src="./assets/img/img-2.jpg" alt="techi`s photo" />
-          <h2>Techi Kariska Sari</h2>
+          <h2>Developed by ndaa</h2>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse
-            deleniti ut incidunt reprehenderit atque maxime assumenda minus
-            praesentium quibusdam ex, ducimus obcaecati culpa aspernatur nihil
-            dignissimos illo laudantium voluptates quos? Nam nemo, cumque
-            reiciendis, voluptatum facere commodi numquam nesciunt molestias at
-            blanditiis laboriosam laudantium! Praesentium nobis at nesciunt sunt
-            voluptates cumque modi ab voluptas similique.
+            For Business Inquiries, feel free to reach me out directly at: <a
+              href="https://wa.me/6285884011606"
+              target="_blank"
+              rel="noopener noreferrer"
+            >https://wa.me/6285884011606</a>
+            <p>You also could check my personal Github pages at: <a
+              href="https://github.com/KndaBimaa17"
+              target="_blank"
+              rel="noopener noreferrer"
+            >https://github.com/KndaBimaa17</a></p>
           </p>
         </div>
         <button id="closeBtn">Close</button>
@@ -463,5 +471,6 @@
     <!-- POP UP END -->
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

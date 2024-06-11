@@ -3,32 +3,22 @@ window.addEventListener("load", () => {
   clock();
   function clock() {
     const today = new Date();
-
-    // get time components
     const hours = today.getHours();
     const minutes = today.getMinutes();
     const seconds = today.getSeconds();
-
-    //add '0' to hour, minute & second when they are less 10
     const hour = hours < 10 ? "0" + hours : hours;
     const minute = minutes < 10 ? "0" + minutes : minutes;
     const second = seconds < 10 ? "0" + seconds : seconds;
-
-    //make clock a 12-hour time clock
     const hourTime = hour > 12 ? hour - 12 : hour;
 
-    // if (hour === 0) {
-    //   hour = 12;
-    // }
-    //assigning 'am' or 'pm' to indicate time of the day
-    const ampm = hour < 12 ? "AM" : "PM";
+    if (hour === 0) {
+      hour = 12;
+    }
 
-    // get date components
+    const ampm = hour < 12 ? "AM" : "PM";
     const month = today.getMonth();
     const year = today.getFullYear();
     const day = today.getDate();
-
-    //declaring a list of all months in  a year
     const monthList = [
       "January",
       "February",
@@ -44,20 +34,16 @@ window.addEventListener("load", () => {
       "December",
     ];
 
-    //get current date and time
     const date = monthList[month] + " " + day + ", " + year;
     const time = hourTime + ":" + minute + ":" + second + " " + ampm;
-
-    //combine current date and time
     // const dateTime = date + " - " + time; THIS IS THE CORRECT SYNTAKS
     const dateTime = time;
-
-    //print current date and time to the DOM
     document.getElementById("date-time").innerHTML = dateTime;
     setTimeout(clock, 1000);
   }
 });
 // END REALTIME CLOCK IN PRIMARY SECTION
+
 // SCROLL BUTTON
 window.onscroll = function () {
   scrollFunction();
@@ -122,31 +108,108 @@ currentImageIndex = (currentImageIndex + 1) % images.length;
 
 setTimeout(function () {
   changeImage();
-  setInterval(changeImage, 4500); // Change the interval to 4.5 seconds (4500 milliseconds)
+  setInterval(changeImage, 4500); 
 }, 4500);
-
-// END OF HERO SECTION FOR IMG
 
 console.log("Image element: ", imgElement);
 console.log("Current image index: ", currentImageIndex);
 console.log("Image source: ", images[currentImageIndex]);
+// END OF HERO SECTION FOR IMG
 
+// Form Logic Start
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector(".contact-form form");
+  const form = document.getElementById("my-form");
   const emailInput = document.getElementById("email");
+  const submitButton = document.getElementById("submit");
+  const loadingIndicator = document.createElement("span");
+
+  loadingIndicator.classList.add("loading");
+  submitButton.appendChild(loadingIndicator);
 
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
   }
 
-  form.addEventListener("submit", function (event) {
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
     const email = emailInput.value.trim();
     if (!validateEmail(email)) {
-      event.preventDefault();
-      alert("Please enter a valid email address.");
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Email",
+        text: "Please enter a valid email address.",
+      });
+      return;
+    }
+
+    submitButton.disabled = true;
+    loadingIndicator.classList.add("active");
+    const data = new FormData(form);
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Thanks for your submission!",
+        });
+        form.reset();
+      } else {
+        const responseData = await response.json();
+        if (responseData.errors) {
+          Swal.fire({
+            icon: "error",
+            title: "Submission Error",
+            text: responseData.errors.map((error) => error.message).join(", "),
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Submission Error",
+            text: "Oops! There was a problem submitting your form.",
+          });
+        }
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Submission Error",
+        text: "Oops! There was a problem submitting your form.",
+      });
+    } finally {
+      submitButton.disabled = false;
+      loadingIndicator.classList.remove("active");
     }
   });
 });
+// Form Logic End
 
+// Navbar Logic Start
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('.navbar-nav a');
 
+window.onscroll = () => {
+  sections.forEach(sec => {
+    let top = window.scrollY;
+    let offset = sec.offsetTop - 100;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute('id');
+
+    if (top >= offset && top < offset + height) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        document.querySelector(`.navbar-nav a[href*='${id}']`).classList.add('active');
+      });
+    }
+  });
+};
+// Navbar Logic End

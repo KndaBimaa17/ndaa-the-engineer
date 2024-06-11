@@ -46,6 +46,7 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--col5);
+  font-style: italic;
 }
 
 .navbar-logo a span {
@@ -57,28 +58,28 @@ body {
   display: inline-block;
   font-size: 1.4rem;
   margin: 0 10px;
-  color: var(--col5);
+  color: rgba(255, 255, 255, 0.60);
 }
 
-.navbar-nav a:hover {
-  color: var(--col2);
+.navbar-nav a:hover, .navbar-nav a.active {
+  color: #fff;
 }
 
 .navbar-nav a::after {
   content: "";
   display: block;
   padding-bottom: 0.5rem;
-  border-bottom: 0.2rem solid var(--col2);
+  border-bottom: 0.2rem solid var(--col5);
   transform: scaleX(0);
+  transition: 0.5s linear;
 }
 
 .navbar-nav a:hover::after {
   transform: scaleX(0.7);
-  transition: 0.4s linear;
 }
 
 #date-time {
-  font-family: oswald;
+  font-family: oswald, sans-serif;
   font-weight: bold;
   font-style: italic;
   margin: auto;
@@ -86,6 +87,7 @@ body {
   font-size: 1.4rem;
   color: var(--col5);
 }
+
 
 /* Hero Section Start */
 #hero {
@@ -113,7 +115,6 @@ body {
   font-weight: bold;
   font-style: italic;
   color: rgb(0, 0, 0);
-
 }
 
 .hero-span {
@@ -141,7 +142,8 @@ body {
   background-color: var(--col4);
   font-family: "Playfair Display", serif;
   border-radius: 0.5rem;
-  box-shadow: 3px 3px 5px rgb(116, 116, 116);
+  box-shadow: 1px 2px 3px rgb(116, 116, 116);
+  margin-right: 18px;
 }
 
 .hero-cta:hover {
@@ -189,18 +191,18 @@ body {
 
 /* About Section Start */
 #about {
+  padding: 4rem 5%;
   min-height: 100vh;
   width: 100%;
-  display: flex;
-  align-items: center;
   background-color: #dedede;
-  position: relative;
+  color: var(--col5);
 }
+
 .about-wrap {
   padding: 4rem;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  margin: 135px auto;
+  margin:60px auto;
   max-width: 1100px;
   background-color: var(--col5);
   text-align: justify;
@@ -303,7 +305,8 @@ body {
 
 .experience,
 .education,
-.hobby, .sosmed {
+.hobby,
+.sosmed {
   margin-bottom: 30px;
 }
 
@@ -334,7 +337,8 @@ body {
   text-align: justify;
 }
 
-.education h3, .education p {
+.education h3,
+.education p {
   margin-left: 20px;
 }
 
@@ -372,7 +376,9 @@ body {
   }
 }
 
-.fa-github, .fa-instagram, .fa-linkedin {
+.fa-github,
+.fa-instagram,
+.fa-linkedin {
   font-size: 3rem;
   margin-right: 20px;
 }
@@ -400,11 +406,13 @@ body {
   color: var(--col4);
   text-shadow: 1px 1px 2px;
 }
-.projects-wrap h2 {
+.projects-wrap h2,
+#contact h2 {
   font-size: 3rem;
   margin: 50px 0;
   color: var(--col4);
   text-shadow: 1px 1px 2px;
+  text-align: center;
 }
 
 .projects-grid {
@@ -458,9 +466,17 @@ body {
   text-decoration: none;
   transition: background-color 0.3s;
 }
+
+.cta:hover {
+  background-color: #007bffa2;
+}
 /* Projects Section Ends */
 
 /* Resume Section Start */
+#resume {
+  display: none;
+}
+
 .resume-container {
   width: 100%;
   max-width: 1200px;
@@ -499,11 +515,13 @@ body {
   border-radius: 5px;
 }
 
-.resume-job, .resume-education {
+.resume-job,
+.resume-education {
   margin-bottom: 10px;
 }
 
-.resume-job h3, .resume-education h3 {
+.resume-job h3,
+.resume-education h3 {
   margin: 0;
   color: #333;
 }
@@ -517,7 +535,8 @@ p {
   margin: 5px 0 15px 0;
 }
 
-.resume-job p, .resume-education p {
+.resume-job p,
+.resume-education p {
   margin: 5px 0 0 0;
   padding-left: 10px;
   border-left: 2px solid #333;
@@ -526,41 +545,94 @@ p {
 /* Contact Section Start */
 #contact {
   padding: 4rem 5%;
-  min-height: 100vh;
+  min-height: 80vh;
   width: 100%;
-  background-color: #ffff;
+  background-color: #dedede;
   color: var(--col5);
 }
-.contact-form {
-  margin-top: 50px;
-  text-align: center;
+
+#my-form {
+  background: #ffffff;
+  padding: 60px 20px;
+  max-width: 600px;
+  margin: 50px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
+#my-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#my-form input,
+#my-form textarea {
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  padding: 15px;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 1rem;
+  font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact-form button {
-  padding: 12px 24px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #007bff;
+#my-form input:focus,
+#my-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#my-form button {
+  padding: 15px;
   border: none;
   border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.2em;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.contact-form button:hover {
+#my-form button:hover {
   background-color: #0056b3;
 }
+
+#my-form input::placeholder,
+#my-form textarea::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Add loading indicator style */
+#my-form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#my-form .loading {
+  display: none;
+}
+
+#my-form .loading.active {
+  display: inline-block;
+  margin-left: 10px;
+  border: 2px solid #f3f3f3; /* Light grey */
+  border-top: 2px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* Contact Section End */
 
 /* Scroll Btn and Footer Start */
@@ -578,13 +650,13 @@ p {
   border-radius: 50%;
   overflow: hidden;
   font-size: 50px;
-  background-color: var(--col4);
+  background-color: #007bff;
   color: white;
   display: none;
 }
 
 #scrollButton:hover {
-  background-color: #00366bca;
+  background-color: #007bff84;
   transform: translateY(-15px);
 }
 
@@ -593,7 +665,7 @@ p {
   align-items: center;
   justify-content: center;
   padding: 1.8rem;
-  font-size: 22px;
+  font-size: 1.1rem;
   color: #ffffff;
   background-color: var(--col4);
   border-top: 0.5px solid;
@@ -607,7 +679,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(182, 137, 91, 0.7);
+  background-color: rgba(0, 54, 107, 0.6);
   z-index: 9999;
 }
 
@@ -621,6 +693,7 @@ p {
   text-align: center;
   border-radius: 50px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 1);
+  
 }
 
 .popup h2 {
@@ -631,7 +704,7 @@ p {
 
 .popup p {
   margin: 1rem;
-  text-align: justify;
+  text-align: left;
   color: #494848;
   font-size: 1.5rem;
 }
@@ -661,8 +734,8 @@ p {
 }
 
 .profile img {
-  width: 330px;
-  height: 330px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   object-fit: cover;
   margin-top: 0;
