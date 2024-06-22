@@ -1,20 +1,36 @@
-// REALTIME CLOCK IN PRIMARY SECTION
-window.addEventListener("load", () => {
-  clock();
+document.addEventListener("DOMContentLoaded", function () {
+  // Navbar Logic
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".navbar-nav a");
+
+  function updateNavbar() {
+    const top = window.scrollY;
+    sections.forEach((sec) => {
+      const offset = sec.offsetTop;
+      const height = sec.offsetHeight;
+      const id = sec.getAttribute("id");
+
+      if (top >= offset && top < offset + height) {
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          document
+            .querySelector(`.navbar-nav a[href*='${id}']`)
+            .classList.add("active");
+        });
+      }
+    });
+  }
+
+  // Realtime Clock
   function clock() {
     const today = new Date();
-    const hours = today.getHours();
+    let hours = today.getHours();
     const minutes = today.getMinutes();
     const seconds = today.getSeconds();
     const hour = hours < 10 ? "0" + hours : hours;
     const minute = minutes < 10 ? "0" + minutes : minutes;
     const second = seconds < 10 ? "0" + seconds : seconds;
     const hourTime = hour > 12 ? hour - 12 : hour;
-
-    if (hour === 0) {
-      hour = 12;
-    }
-
     const ampm = hour < 12 ? "AM" : "PM";
     const month = today.getMonth();
     const year = today.getFullYear();
@@ -33,91 +49,59 @@ window.addEventListener("load", () => {
       "November",
       "December",
     ];
-
-    const date = monthList[month] + " " + day + ", " + year;
-    const time = hourTime + ":" + minute + ":" + second + " " + ampm;
-    // const dateTime = date + " - " + time; THIS IS THE CORRECT SYNTAKS
-    const dateTime = time;
-    document.getElementById("date-time").innerHTML = dateTime;
+    const date = `${monthList[month]} ${day}, ${year}`;
+    const time = `${hourTime}:${minute}:${second} ${ampm}`;
+    document.getElementById("date-time").innerHTML = time;
     setTimeout(clock, 1000);
   }
-});
-// END REALTIME CLOCK IN PRIMARY SECTION
 
-// SCROLL BUTTON
-window.onscroll = function () {
-  scrollFunction();
-};
+  // Image Carousel
+  const images = [
+    "./assets/img/kanda5.png",
+    "./assets/img/kanda1.png",
+    "./assets/img/kanda6.png",
+  ];
+  const imgElement = document.getElementById("hero-img");
+  let currentImageIndex = 0;
 
-function scrollFunction() {
-  if (
-    document.body.scrollTop > 1000 ||
-    document.documentElement.scrollTop > 1000
-  ) {
-    document.getElementById("scrollButton").style.display = "block";
-  } else {
-    document.getElementById("scrollButton").style.display = "none";
+  function changeImage() {
+    imgElement.classList.remove("fade-animation");
+    imgElement.style.opacity = 0;
+    setTimeout(() => {
+      imgElement.src = images[currentImageIndex];
+      imgElement.classList.add("fade-animation");
+      imgElement.style.opacity = 1;
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+    }, 500);
   }
-}
 
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-}
-// SCROLL BUTTON END
+  imgElement.src = images[currentImageIndex];
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  setTimeout(() => {
+    changeImage();
+    setInterval(changeImage, 4500);
+  }, 4500);
 
-// POP UP START
-const authorSpan = document.getElementById("author");
-const popup = document.getElementById("popup");
-const closeBtn = document.getElementById("closeBtn");
+  // Scroll Button
+  const scrollButton = document.getElementById("scrollButton");
+  function updateScrollButton() {
+    if (
+      document.body.scrollTop > 100 ||
+      document.documentElement.scrollTop > 100
+    ) {
+      scrollButton.style.display = "block";
+    } else {
+      scrollButton.style.display = "none";
+    }
+  }
 
-authorSpan.addEventListener("click", function () {
-  popup.style.display = "block";
-});
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
-closeBtn.addEventListener("click", function () {
-  popup.style.display = "none";
-});
-// POP UP END
+  scrollButton.addEventListener("click", scrollToTop);
 
-// HERO SECTION FOR IMG
-const images = [
-  "./assets/img/kanda5.png",
-  "./assets/img/kanda1.png",
-  "./assets/img/kanda6.png",
-];
-
-const imgElement = document.getElementById("hero-img");
-let currentImageIndex = 0;
-
-function changeImage() {
-  imgElement.classList.remove("fade-animation");
-  imgElement.style.opacity = 0;
-  setTimeout(function () {
-    imgElement.src = images[currentImageIndex];
-    imgElement.classList.add("fade-animation");
-    imgElement.style.opacity = 1;
-    currentImageIndex = (currentImageIndex + 1) % images.length;
-  }, 500);
-}
-
-imgElement.src = images[currentImageIndex];
-currentImageIndex = (currentImageIndex + 1) % images.length;
-
-setTimeout(function () {
-  changeImage();
-  setInterval(changeImage, 4500); 
-}, 4500);
-
-console.log("Image element: ", imgElement);
-console.log("Current image index: ", currentImageIndex);
-console.log("Image source: ", images[currentImageIndex]);
-// END OF HERO SECTION FOR IMG
-
-// Form Logic Start
-document.addEventListener("DOMContentLoaded", function () {
+  // Form Validation and Submission
   const form = document.getElementById("my-form");
   const emailInput = document.getElementById("email");
   const submitButton = document.getElementById("submit");
@@ -133,8 +117,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
-
     const email = emailInput.value.trim();
+
     if (!validateEmail(email)) {
       Swal.fire({
         icon: "error",
@@ -146,14 +130,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     submitButton.disabled = true;
     loadingIndicator.classList.add("active");
+
     const data = new FormData(form);
     try {
       const response = await fetch(form.action, {
         method: form.method,
         body: data,
-        headers: {
-          Accept: "application/json",
-        },
+        headers: { Accept: "application/json" },
       });
 
       if (response.ok) {
@@ -165,19 +148,14 @@ document.addEventListener("DOMContentLoaded", function () {
         form.reset();
       } else {
         const responseData = await response.json();
-        if (responseData.errors) {
-          Swal.fire({
-            icon: "error",
-            title: "Submission Error",
-            text: responseData.errors.map((error) => error.message).join(", "),
-          });
-        } else {
-          Swal.fire({
-            icon: "error",
-            title: "Submission Error",
-            text: "Oops! There was a problem submitting your form.",
-          });
-        }
+        const errorMessages = responseData.errors
+          ? responseData.errors.map((error) => error.message).join(", ")
+          : "Oops! There was a problem submitting your form.";
+        Swal.fire({
+          icon: "error",
+          title: "Submission Error",
+          text: errorMessages,
+        });
       }
     } catch (error) {
       Swal.fire({
@@ -190,26 +168,41 @@ document.addEventListener("DOMContentLoaded", function () {
       loadingIndicator.classList.remove("active");
     }
   });
-});
-// Form Logic End
 
-// Navbar Logic Start
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('.navbar-nav a');
+  // Popup
+  const authorSpan = document.getElementById("author");
+  const popup = document.getElementById("popup");
+  const closeBtn = document.getElementById("closeBtn");
 
-window.onscroll = () => {
-  sections.forEach(sec => {
-    let top = window.scrollY;
-    let offset = sec.offsetTop - 100;
-    let height = sec.offsetHeight;
-    let id = sec.getAttribute('id');
+  authorSpan.addEventListener("click", () => {
+    popup.style.display = "block";
+  });
 
-    if (top >= offset && top < offset + height) {
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        document.querySelector(`.navbar-nav a[href*='${id}']`).classList.add('active');
-      });
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+
+  // NAVBAR FOR MOBILE
+  const navbar = document.querySelector(".navbar-phone");
+  const toggleNav = document.querySelector("#toggle-nav");
+
+  toggleNav.addEventListener("click", () => {
+    navbar.classList.toggle("show");
+  });
+
+  // Close navbar when clicking anywhere on the screen
+  document.addEventListener("click", function (event) {
+    if (!navbar.contains(event.target) && !toggleNav.contains(event.target)) {
+      navbar.classList.remove("show");
     }
   });
-};
-// Navbar Logic End
+
+  // Combined Scroll Event
+  window.onscroll = function () {
+    updateNavbar();
+    updateScrollButton();
+  };
+
+  // Initialize clock
+  clock();
+});
