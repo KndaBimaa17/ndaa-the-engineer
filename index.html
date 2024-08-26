@@ -3,503 +3,240 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mySpace</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
-    />
-     <!-- ICON SCRIPT -->
-     <script src="https://unpkg.com/feather-icons"></script>
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Times New Roman", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        max-width: 450px;
+        margin: auto;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .section {
+        margin-bottom: 30px;
+      }
+
+      .section img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .section h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      h1 {
+        font-size: 24px;
+        text-align: center;
+      }
+
+      .section p {
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: justify;
+      }
+
+      .quote {
+        font-style: italic;
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      /* Slider styles */
+      .slider {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .slides img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      /* Dots styles */
+      .dots {
+        text-align: center;
+        margin-top: 6px;
+      }
+
+      .dots span {
+        display: inline-block;
+        height: 2px;
+        width: 20px;
+        margin: 5px;
+        background-color: #ccc;
+        border-radius: none;
+        cursor: pointer;
+      }
+
+      .dots .active {
+        background-color: #333;
+      }
+    </style>
   </head>
   <body>
-    <!-- Navbar -->
     <header>
-
-      <!-- NAVBAR START (MOBILE PHONE) -->
-    <nav class="navbar-phone">
-      <div class="navbar-logo-phone">
-        <a href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-boxes" viewBox="0 0 16 16">
-            <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434zM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567zM7.5 9.933l-2.75 1.571v3.134l2.75-1.571zm1 3.134 2.75 1.571v-3.134L8.5 9.933zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567zm2.242-2.433V3.504L8.5 5.076V8.21zM7.5 8.21V5.076L4.75 3.504v3.134zM5.258 2.643 8 4.21l2.742-1.567L8 1.076zM15 9.933l-2.75 1.571v3.134L15 13.067zM3.75 14.638v-3.134L1 9.933v3.134z"/>
-          </svg>
-          <span>mySpace.</span>
-        </a>
-      </div>
-
-      <div class="navbar-nav-phone">
-          <a href="#hero" class="active">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-      </div>
-      <div class="navbar-extra-phone">
-        <a href="#" id="toggle-nav"><i data-feather="menu"></i> </a>
-      </div>
-    </nav>
-    <!-- NAVBAR END (MOBILE PHONE) -->
-      
-      <!-- NAVBAR START (WEBSITE) -->
-      <nav class="navbar">
-        <div class="navbar-logo">
-          <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-boxes" viewBox="0 0 16 16">
-              <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434zM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567zM7.5 9.933l-2.75 1.571v3.134l2.75-1.571zm1 3.134 2.75 1.571v-3.134L8.5 9.933zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567zm2.242-2.433V3.504L8.5 5.076V8.21zM7.5 8.21V5.076L4.75 3.504v3.134zM5.258 2.643 8 4.21l2.742-1.567L8 1.076zM15 9.933l-2.75 1.571v3.134L15 13.067zM3.75 14.638v-3.134L1 9.933v3.134z"/>
-            </svg>
-            <span>mySpace.</span>
-          </a>
-        </div>
-    
-        <div class="navbar-nav">
-          <a href="#hero" class="active">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-    
-        <div class="navbar-clock">
-          <div id="clock">
-            <p id="date-time"></p>
-          </div>
-        </div>
-      </nav>
-      <!-- NAVBAR END (WEBSITE) -->
+      <h1>M. Kanda Bima Anggara</h1>
     </header>
-    
-    <main>
-      <!-- Hero Section -->
-      <section id="hero">
-        <div class="hero-wrap">
-          <div class="hero-left">
-            <div class="hero-txt">
-              <p class="hero-p">
-                Hello <span class="hero-span">tech enthusiasts!</span>
-              </p>
-              <p class="hero-p">Welcome to my Personal Website</p>
-              <p id="hero-p-2"></p>
-              <a href="#about" class="hero-cta">Get Started 🚀</a>
-              <a href="#contact" class="hero-cta">Reach Me Out 📧</a>
-            </div>
-          </div>
-          <div id="hero-image-container">
-            <img id="hero-img" alt="side-img" />
-          </div>
-        </div>
-      </section>
 
-      <!-- About Section -->
-      <section id="about">
-        <div class="about-wrap">
-          <div class="abt-me">
-            <h2>About Me</h2>
-            <p>
-              Hello! <span class="abt-kanda">I'm Kanda</span>, a passionate and
-              results-driven full-stack developer. I have extensive experience
-              in building scalable web applications and designing intuitive user
-              interfaces. My skills cover a wide range of technologies, allowing
-              me to create efficient and high-quality solutions. I am always
-              looking for new challenges to improve my skills and stay updated
-              with the latest industry trends. Whether working independently or
-              as part of a team, I am committed to delivering excellence in
-              every project I undertake.
-            </p>
-          </div>
-
-          <div class="abt-wrp-2">
-            <div class="skills">
-              <h3>Skills</h3>
-              <ul>
-                <li><i class="fab fa-html5"></i> HTML5</li>
-                <li><i class="fab fa-css3-alt"></i> CSS3</li>
-                <li><i class="fab fa-js-square"></i> JavaScript (ES6+)</li>
-                <li><i class="fab fa-react"></i> React.js</li>
-                <li><i class="fab fa-node"></i> Node.js</li>
-                <li><i class="fas fa-database"></i> MongoDB</li>
-                <li><i class="fas fa-database"></i> SQL</li>
-                <li><i class="fas fa-code"></i> RESTful APIs</li>
-                <li><i class="fab fa-git-alt"></i> Git</li>
-                <li><i class="fas fa-server"></i> Server Management</li>
-                <li><i class="fab fa-aws"></i> AWS</li>
-                <li><i class="fab fa-docker"></i> Docker</li>
-              </ul>
-            </div>
-
-            <div class="experience">
-              <h3>Experience</h3>
-              <p>
-                I have over 2 years of experience working in various tech
-                environments, from startups to large corporations. During my
-                career, I've led development teams, managed projects, and
-                delivered high-quality solutions that meet client requirements.
-              </p>
-            </div>
-          </div>
-
-          <div class="abt-wrp-3">
-            <div class="hobby">
-              <h3>hobby</h3>
-              <p>
-                1) I`am actively participating in my campus basketball team to
-                increases teamwork and physical condition.
-              </p>
-              <p>
-                2) Writting is a good friend of mine, the thing that I do in my
-                freetime also to release stress.
-              </p>
-            </div>
-            <div class="education">
-              <h3>Education</h3>
-              <p>
-                I hold a Bachelor's degree in Computer Science from University
-                of Indonesia. Additionally, I continuously invest in my learning
-                journey by staying updated with the latest technologies and
-                attending relevant workshops and conferences.
-              </p>
-            </div>
-          </div>
-
-          <div class="abt-wrp-4">
-            <h3>Social Media <span>- Click To Reach Me!</span></h3>
-            <div class="sosmed">
-              <div class="gh">
-                <div class="gh-cards">
-                  <a
-                    class="cta-2"
-                    href="https://github.com/KndaBimaa17"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><i class="fab fa-github" aria-hidden="true"></i>Github</a
-                  >
-                </div>
-              </div>
-              <div class="insta">
-                <div class="insta-cards">
-                  <a
-                    class="cta-2"
-                    href="https://www.instagram.com/muhammadkanda091/?hl=id"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i class="fab fa-instagram" aria-hidden="true"></i>Instagram
-                  </a>
-                </div>
-              </div>
-              <div class="linked">
-                <div class="linked-cards">
-                  <a
-                    class="cta-2"
-                    href="https://www.linkedin.com/in/kandatheengineer/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><i class="fab fa-linkedin" aria-hidden="true"></i
-                    >LinkedIn</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects Section -->
-      <section id="projects">
-        <div class="projects-wrap">
-          <h2>My Projects</h2>
-          <div class="projects-grid">
-            <!-- 1 -->
-            <div class="project-item">
-              <img src="./assets/img/project-1.png" alt="Songs Recomendations" />
-              <div class="inner-pi">
-                <h3>Simple Restaurant Website</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Pariatur, quas velit temporibus impedit dolore cum nulla
-                  accusantium. Cupiditate, adipisci ratione!
-                </p>
-                <a
-                  href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
-                  class="cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Live Demo</a
-                >
-                <a
-                  href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
-                  class="cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-            <!-- 2 -->
-            <div class="project-item">
-              <img src="./assets/img/project-2.png" alt="SEA Salon`s Services Page Screenshot" />
-              <div class="inner-pi">
-                <h3>SEA Salon`s Website</h3>
-                <p>
-                  This is a simple website for a salon. It was created as part of my participation in the COMPFEST 2024 selection process, organized by Fasilkom UI. Preview or see code below!
-                </p>
-                <a
-                  href="https://kndabimaa17.github.io/SEA-Salon/"
-                  class="cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Live Demo</a
-                >
-                <a
-                  href="https://github.com/KndaBimaa17/SEA-Salon"
-                  class="cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-            <!-- 3 -->
-            <div class="project-item">
-              <img src="./assets/img/img-5.png" alt="Songs Recomendations" />
-              <div class="inner-pi">
-                <h3>Simple Restaurant Website</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Pariatur, quas velit temporibus impedit dolore cum nulla
-                  accusantium. Cupiditate, adipisci ratione!
-                </p>
-                <a
-                  href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
-                  class="cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Live Demo</a
-                >
-                <a
-                  href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
-                  class="cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-            <!-- 4 -->
-            <div class="project-item">
-              <img src="./assets/img/img-5.png" alt="Songs Recomendations" />
-              <div class="inner-pi">
-                <h3>Simple Restaurant Website</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Pariatur, quas velit temporibus impedit dolore cum nulla
-                  accusantium. Cupiditate, adipisci ratione!
-                </p>
-                <a
-                  href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
-                  class="cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Live Demo</a
-                >
-                <a
-                  href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
-                  class="cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-            <!-- 5 -->
-            <div class="project-item">
-              <img src="./assets/img/img-5.png" alt="Songs Recomendations" />
-              <div class="inner-pi">
-                <h3>Simple Restaurant Website</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Pariatur, quas velit temporibus impedit dolore cum nulla
-                  accusantium. Cupiditate, adipisci ratione!
-                </p>
-                <a
-                  href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
-                  class="cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Live Demo</a
-                >
-                <a
-                  href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
-                  class="cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-            <!-- 6 -->
-            <div class="project-item">
-              <img src="./assets/img/img-5.png" alt="Songs Recomendations" />
-              <div class="inner-pi">
-                <h3>Simple Restaurant Website</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Pariatur, quas velit temporibus impedit dolore cum nulla
-                  accusantium. Cupiditate, adipisci ratione!
-                </p>
-                <a
-                  href="https://kndabimaa17.github.io/Simple-Restaurant-Website/"
-                  class="cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Live Demo</a
-                >
-                <a
-                  href="https://github.com/KndaBimaa17/Simple-Restaurant-Website"
-                  class="cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Resume Section -->
-      <section id="resume">
-        <div class="resume-container">
-          <h1 class="resume-title">Kanda's Resume</h1>
-          <div class="resume-section">
-            <h2>Profile</h2>
-            <p>
-              Hello! I'm Kanda, a passionate and results-driven full-stack
-              developer. I have extensive experience in building scalable web
-              applications and designing intuitive user interfaces.
-            </p>
-          </div>
-          <div class="resume-section">
-            <h2>Skills</h2>
-            <ul>
-              <li>JavaScript, HTML, CSS</li>
-              <li>React, Angular, Vue.js</li>
-              <li>Node.js, Express, MongoDB</li>
-              <li>Git, Docker, CI/CD</li>
-            </ul>
-          </div>
-          <div class="resume-section">
-            <h2>Experience</h2>
-            <div class="job">
-              <h3>Full-Stack Developer at TechCorp</h3>
-              <span class="date">Jan 2020 - Present</span>
-              <p>
-                Developed and maintained scalable web applications, improving
-                performance and user experience. Collaborated with
-                cross-functional teams to deliver high-quality software
-                solutions.
-              </p>
-            </div>
-            <div class="resume-job">
-              <h3>Frontend Developer at WebSolutions</h3>
-              <span class="date">Jun 2017 - Dec 2019</span>
-              <p>
-                Created interactive and responsive user interfaces using modern
-                JavaScript frameworks. Optimized application performance and
-                enhanced user engagement.
-              </p>
-            </div>
-          </div>
-          <div class="resume-section">
-            <h2>Education</h2>
-            <div class="resume-education">
-              <h3>Bachelor's Degree in Computer Science</h3>
-              <span class="date">Sep 2013 - May 2017</span>
-              <p>University of Technology</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Contact Section -->
-      <section id="contact">
-        <h2>Contact Me</h2>
-        <form
-          id="my-form"
-          action="https://formspree.io/f/mwkggljb"
-          method="POST"
-        >
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input
-            id="email"
-            type="text"
-            name="email"
-            placeholder="Your Email"
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="4"
-            required
-          ></textarea>
-          <button id="submit" type="submit">Send Message</button>
-          <p id="my-form-status"></p>
-        </form>
-      </section>
-    </main>
-    <!-- SCROLL BUTTON -->
-    <button id="scrollButton" onclick="ayoKeatas()">
-      <i class="fa fa-arrow-up" aria-hidden="true"></i>
-    </button>
-    <!-- BUTTTON END -->
-
-    <!-- FOOTER AND COPYRIGHT -->
-    <div class="copyright">
-      <!-- <div class="footer-left">#404nf</div> -->
-      <div class="footer-cp">
-        Copyright &copy; 2024 by <span id="author">ndaa</span>. All Rights
-        Reserved.
+    <div class="container">
+      <!-- Biodata Section -->
+      <div class="section" id="biodata">
+        <h2>Biodata Lengkap</h2>
+        <p>Nama: M. Kanda Bima Anggara</p>
+        <p>Umur: 19 Tahun</p>
+        <p>Zodiak: Taurus</p>
+        <p>Email: kanda24001@mail.unpad.ac.id</p>
+        <p>Asal: Sumedang, Jawa Barat</p>
       </div>
-      <!-- <div class="footer-summary"><span id="summaryid">~Summary</span></div> -->
-    </div>
-    <!-- FOOTER END -->
 
-    <!-- POP UP START -->
-    <div id="popup" class="popup">
-      <div class="popup-content">
-        <div class="profile">
-          <img src="./assets/img/img-2.jpg" alt="techi`s photo" />
-          <h2>Developed by ndaa</h2>
+      <!-- Foto Slider Section -->
+      <div class="section" id="foto-slider">
+        <div class="chapter1">
+          <h1>CHAPTER 1 <br>
+          MEMORABLE MEMORIES</h1>
+          <div class="chapter1-1">
+            <h2>&#8544.1 Computer Engineer</h2>
+          <div class="slider">
+            <div class="slides">
+              <img src="./assets/img/project-2.png" alt="Foto di UI" />
+              <img src="./assets/img/project-1.png" alt="Foto di Unpad" />
+              <img src="./assets/img/project-3.png" alt="Foto Lainnya" />
+            </div>
+          </div>
+          <div class="dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+          </div>
           <p>
-            For Business Inquiries, feel free to reach me out directly at: <a
-              href="https://wa.me/6285884011606"
-              target="_blank"
-              rel="noopener noreferrer"
-            >https://wa.me/6285884011606</a>
-            <p>You also could check my personal Github pages at: <a
-              href="https://github.com/KndaBimaa17"
-              target="_blank"
-              rel="noopener noreferrer"
-            >https://github.com/KndaBimaa17</a></p>
+            Saya memilih jurusan ini karena selain ingin meneruskan karier ayah
+            saya, saya juga sangat tertarik dengan segala hal yang berkaitan
+            dengan perfilman. Dengan bekal pengetahuan teknologi dari latar
+            belakang saya sebelumnya, saya yakin dapat memberikan kontribusi yang
+            unik dan inovatif dalam industri kreatif ini.
           </p>
+          </div>
+          <div class="chapter1-2">
+            <h2>&#8544.2 Supportive Friends</h2>
+          <div class="slider">
+            <div class="slides">
+              <img src="./assets/img/project-2.png" alt="Foto di UI" />
+              <img src="./assets/img/project-1.png" alt="Foto di Unpad" />
+              <img src="./assets/img/project-3.png" alt="Foto Lainnya" />
+            </div>
+          </div>
+          <div class="dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+          </div>
+          <p>
+            Saya memilih jurusan ini karena selain ingin meneruskan karier ayah
+            saya, saya juga sangat tertarik dengan segala hal yang berkaitan
+            dengan perfilman. Dengan bekal pengetahuan teknologi dari latar
+            belakang saya sebelumnya, saya yakin dapat memberikan kontribusi yang
+            unik dan inovatif dalam industri kreatif ini.
+          </p>
+          </div>
+          <div class="chapter1-3">
+            <h2>&#8544.3 Organizations</h2>
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/img/project-2.png" alt="Foto di UI" />
+                <img src="./assets/img/project-1.png" alt="Foto di Unpad" />
+                <img src="./assets/img/project-3.png" alt="Foto Lainnya" />
+              </div>
+            </div>
+            <div class="dots">
+              <span class="dot active" onclick="currentSlide(0)"></span>
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+            <p>
+              Saya memilih jurusan ini karena selain ingin meneruskan karier ayah
+              saya, saya juga sangat tertarik dengan segala hal yang berkaitan
+              dengan perfilman. Dengan bekal pengetahuan teknologi dari latar
+              belakang saya sebelumnya, saya yakin dapat memberikan kontribusi yang
+              unik dan inovatif dalam industri kreatif ini.
+            </p>
+          </div>
         </div>
-        <button id="closeBtn">Close</button>
+      </div>
+
+      <!-- Narasi Section -->
+      <div class="section" id="narasi">
+        <h2>Alasan dan Harapan</h2>
+        <p>
+          Saya memilih jurusan ini karena selain ingin meneruskan karier ayah
+          saya, saya juga sangat tertarik dengan segala hal yang berkaitan
+          dengan perfilman. Dengan bekal pengetahuan teknologi dari latar
+          belakang saya sebelumnya, saya yakin dapat memberikan kontribusi yang
+          unik dan inovatif dalam industri kreatif ini.
+        </p>
+      </div>
+
+      <!-- Quote Section -->
+      <div class="quote">
+        <p>"Stay inspired. Never stop creating."</p>
       </div>
     </div>
-    <!-- POP UP END -->
 
-  </body>
-    <script src="./script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- ICON SCRIPT -->
     <script>
-      feather.replace();
+      let slideIndex = 0;
+      const slides = document.querySelector(".slides");
+      const dots = document.querySelectorAll(".dot");
+      showSlides();
+
+      function showSlides() {
+        let totalSlides = slides.children.length;
+
+        slides.style.transform = "translateX(" + -slideIndex * 100 + "%)";
+
+        dots.forEach((dot, index) => {
+          dot.classList.remove("active");
+          if (index === slideIndex) {
+            dot.classList.add("active");
+          }
+        });
+
+        slideIndex++;
+        if (slideIndex >= totalSlides) {
+          slideIndex = 0;
+        }
+
+        setTimeout(showSlides, 2000); // Change image every 3 seconds
+      }
+
+      function currentSlide(n) {
+        slideIndex = n;
+        showSlides();
+      }
     </script>
+  </body>
 </html>
