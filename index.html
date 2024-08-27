@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Public Speaking</title>
     <style>
+      * {
+        scroll-behavior: smooth;
+      }
       body {
         font-family: "Times New Roman", sans-serif;
         margin: 0;
@@ -16,10 +19,23 @@
       }
 
       header {
-        background-color: #333;
-        color: #fff;
-        padding: 15px;
-        text-align: center;
+        background-color: rgb(14, 132, 168);
+        display: flex;
+        position: fixed;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 6%;
+        right: 0;
+        left: 0;
+        top: 0;
+        z-index: 999999;
+        color: white;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight: 900;
       }
 
       .container {
@@ -101,22 +117,68 @@
       .chapter1 {
         margin-bottom: 44px;
       }
+
+      .chap3wrp {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      #img-1, #img-2 {
+        height: 100px;
+      }
+
+      #img-3, #img-4 {
+        height: 220px;
+      }
+
+      .chap2wrp {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      #img-5 {
+        margin-top: 20px;
+        height: 180px;
+      }
+
+      .quote {
+        margin-top: 120px;
+        margin-bottom: 60px;
+        font-size: 28px;
+      }
+
+      .chapter2 {
+        margin-top: 80px;
+      }
+
+      #cta {
+        padding: 0.3rem 0.6rem;
+        font-size: 14px;
+        background-color: rgb(34, 71, 165);
+        color: white;
+        border-radius: 10px;
+        box-shadow: black 1px 2px 3px;
+        margin: 10px 10px;
+
+      }
     </style>
   </head>
   <body>
     <header>
-      <h1>M. Kanda Bima Anggara</h1>
+      <a href="#">Kandaa</a>
+      <div class="navbar-clock">
+        <div id="clock">
+          <p id="date-time"></p>
+        </div>
     </header>
 
     <div class="container">
       <!-- Biodata Section -->
-      <div class="section" id="biodata">
-        <h2>Biodata Lengkap</h2>
-        <p>Nama: M. Kanda Bima Anggara</p>
-        <p>Umur: 19 Tahun</p>
-        <p>Zodiak: Taurus</p>
-        <p>Email: kanda24001@mail.unpad.ac.id</p>
-        <p>Asal: Kota Jambi</p>
+
+      <div class="quote">
+        <p>"Stay inspired and Never stop creating."</p>
       </div>
 
       <!-- Foto Slider Section -->
@@ -128,67 +190,39 @@
             <h2>&#8544.1 Computer Engineer</h2>
           <div class="slider">
             <div class="slides">
-              <img src="./assets/img/project-2.png" alt="Foto di UI" />
-              <img src="./assets/img/project-1.png" alt="Foto di Unpad" />
-              <img src="./assets/img/project-3.png" alt="Foto Lainnya" />
+              <img src="./assets/pubspeak/chap1-1.png" alt="My Coding Worksheet" />
+              <img src="./assets/pubspeak/chap1-2.png" alt="Making Gmaps Clone" />
+              <img src="./assets/pubspeak/chap1-3.png" alt="Making CinemaApp" />
+              <img src="./assets/pubspeak/chap1-4.png" alt="Network Topology" />
+              <img src="./assets/pubspeak/chap1-5.jpg" alt="Parade UI" />
             </div>
           </div>
           <div class="dots">
             <span class="dot active" onclick="currentSlide(0)"></span>
             <span class="dot" onclick="currentSlide(1)"></span>
             <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
           </div>
           <p>
-            Saya memilih jurusan ini karena selain ingin meneruskan karier ayah
-            saya, saya juga sangat tertarik dengan segala hal yang berkaitan
-            dengan perfilman. Dengan bekal pengetahuan teknologi dari latar
-            belakang saya sebelumnya, saya yakin dapat memberikan kontribusi yang
-            unik dan inovatif dalam industri kreatif ini.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quod neque, hic placeat debitis cumque magnam repellendus cupiditate corporis inventore nulla ut impedit recusandae, exercitationem quia voluptatem unde deserunt! Adipisci.
           </p>
           </div>
           <div class="chapter1-2">
             <h2>&#8544.2 Supportive Friends</h2>
-          <div class="slider">
-            <div class="slides">
-              <img src="./assets/img/project-2.png" alt="Foto di UI" />
-              <img src="./assets/img/project-1.png" alt="Foto di Unpad" />
-              <img src="./assets/img/project-3.png" alt="Foto Lainnya" />
+            <div class="chap2wrp">
+            <img src="./assets/pubspeak/1233.jpg" alt="">
+            <img src="./assets/pubspeak/123.jpg" alt="">
             </div>
-          </div>
-          <div class="dots">
-            <span class="dot active" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-          </div>
-          <p>
-            Saya memilih jurusan ini karena selain ingin meneruskan karier ayah
-            saya, saya juga sangat tertarik dengan segala hal yang berkaitan
-            dengan perfilman. Dengan bekal pengetahuan teknologi dari latar
-            belakang saya sebelumnya, saya yakin dapat memberikan kontribusi yang
-            unik dan inovatif dalam industri kreatif ini.
-          </p>
-          </div>
+            <img id="img-5" src="./assets/pubspeak/1.JPG" alt="Lord">
           <div class="chapter1-3">
             <h2>&#8544.3 Organizations</h2>
-            <div class="slider">
-              <div class="slides">
-                <img src="./assets/img/project-2.png" alt="Foto di UI" />
-                <img src="./assets/img/project-1.png" alt="Foto di Unpad" />
-                <img src="./assets/img/project-3.png" alt="Foto Lainnya" />
-              </div>
+            <div class="chap3wrp">
+              <img id="img-1" src="./assets/pubspeak/org1.jpg" alt="Permira">
+            <img id="img-2" src="./assets/pubspeak/org3.jpg" alt="At XL-Axiata Towers">
+            <img id="img-3" src="./assets/pubspeak/org2.jpg" alt="At XL-Axiata Towers">
+            <img id="img-4" src="./assets/pubspeak/org4.jpg" alt="">
             </div>
-            <div class="dots">
-              <span class="dot active" onclick="currentSlide(0)"></span>
-              <span class="dot" onclick="currentSlide(1)"></span>
-              <span class="dot" onclick="currentSlide(2)"></span>
-            </div>
-            <p>
-              Saya memilih jurusan ini karena selain ingin meneruskan karier ayah
-              saya, saya juga sangat tertarik dengan segala hal yang berkaitan
-              dengan perfilman. Dengan bekal pengetahuan teknologi dari latar
-              belakang saya sebelumnya, saya yakin dapat memberikan kontribusi yang
-              unik dan inovatif dalam industri kreatif ini.
-            </p>
           </div>
         </div>
         <div class="chapter2">
@@ -196,76 +230,8 @@
           BACK TO THE TRACK</h1>
           <div class="chapter2-1">
             <h2>&#8545.1 New Society, New Challanges</h2>
-          <div class="slider">
-            <div class="slides">
-              <img src="./assets/img/project-2.png" alt="Foto di UI" />
-              <img src="./assets/img/project-1.png" alt="Foto di Unpad" />
-              <img src="./assets/img/project-3.png" alt="Foto Lainnya" />
-            </div>
-          </div>
-          <div class="dots">
-            <span class="dot active" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-          </div>
-          <p>
-            Saya memilih jurusan ini karena selain ingin meneruskan karier ayah
-            saya, saya juga sangat tertarik dengan segala hal yang berkaitan
-            dengan perfilman. Dengan bekal pengetahuan teknologi dari latar
-            belakang saya sebelumnya, saya yakin dapat memberikan kontribusi yang
-            unik dan inovatif dalam industri kreatif ini.
-          </p>
-          </div>
-          <div class="chapter1-2">
-            <h2>&#8544.2 Supportive Friends</h2>
-          <div class="slider">
-            <div class="slides">
-              <img src="./assets/img/project-2.png" alt="Foto di UI" />
-              <img src="./assets/img/project-1.png" alt="Foto di Unpad" />
-              <img src="./assets/img/project-3.png" alt="Foto Lainnya" />
-            </div>
-          </div>
-          <div class="dots">
-            <span class="dot active" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-          </div>
-          <p>
-            Saya memilih jurusan ini karena selain ingin meneruskan karier ayah
-            saya, saya juga sangat tertarik dengan segala hal yang berkaitan
-            dengan perfilman. Dengan bekal pengetahuan teknologi dari latar
-            belakang saya sebelumnya, saya yakin dapat memberikan kontribusi yang
-            unik dan inovatif dalam industri kreatif ini.
-          </p>
-          </div>
-          <div class="chapter1-3">
-            <h2>&#8544.3 Organizations</h2>
-            <div class="slider">
-              <div class="slides">
-                <img src="./assets/img/project-2.png" alt="Foto di UI" />
-                <img src="./assets/img/project-1.png" alt="Foto di Unpad" />
-                <img src="./assets/img/project-3.png" alt="Foto Lainnya" />
-              </div>
-            </div>
-            <div class="dots">
-              <span class="dot active" onclick="currentSlide(0)"></span>
-              <span class="dot" onclick="currentSlide(1)"></span>
-              <span class="dot" onclick="currentSlide(2)"></span>
-            </div>
-            <p>
-              Saya memilih jurusan ini karena selain ingin meneruskan karier ayah
-              saya, saya juga sangat tertarik dengan segala hal yang berkaitan
-              dengan perfilman. Dengan bekal pengetahuan teknologi dari latar
-              belakang saya sebelumnya, saya yakin dapat memberikan kontribusi yang
-              unik dan inovatif dalam industri kreatif ini.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Narasi Section -->
-      <div class="section" id="narasi">
-        <h2>Alasan dan Harapan</h2>
+            <img src="./assets/pubspeak/abcd.jpg" alt="">
+            <h2>Alasan dan Harapan</h2>
         <p>
           Saya memilih jurusan ini karena selain ingin meneruskan karier ayah
           saya, saya juga sangat tertarik dengan segala hal yang berkaitan
@@ -273,15 +239,77 @@
           belakang saya sebelumnya, saya yakin dapat memberikan kontribusi yang
           unik dan inovatif dalam industri kreatif ini.
         </p>
-      </div>
+          </div>
+        </div>
 
-      <!-- Quote Section -->
-      <div class="quote">
-        <p>"Stay inspired. Never stop creating."</p>
+        <div class="chapter3">
+          <h2 style="text-align: center;">Conclusion and Suggestions</h2>
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6UnaXgSOtMYHriHGckvjEp?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <p>That`s all guys, kindly gimme your fav song with this link: <a id="cta" href="https://open.spotify.com/playlist/6UnaXgSOtMYHriHGckvjEp?si=7cc8349e6b4349f6&pt=8000fbc319a6797809089e0058f9c5d2">Collab Link</a></p>
+        </div>
       </div>
     </div>
 
     <script>
+      // REALTIME CLOCK IN PRIMARY SECTION
+window.addEventListener("load", () => {
+  clock();
+  function clock() {
+    const today = new Date();
+
+    // get time components
+    const hours = today.getHours();
+    const minutes = today.getMinutes();
+    const seconds = today.getSeconds();
+
+    //add '0' to hour, minute & second when they are less 10
+    const hour = hours < 10 ? "0" + hours : hours;
+    const minute = minutes < 10 ? "0" + minutes : minutes;
+    const second = seconds < 10 ? "0" + seconds : seconds;
+
+    //make clock a 12-hour time clock
+    const hourTime = hour > 12 ? hour - 12 : hour;
+
+    // if (hour === 0) {
+    //   hour = 12;
+    // }
+    //assigning 'am' or 'pm' to indicate time of the day
+    const ampm = hour < 12 ? "AM" : "PM";
+
+    // get date components
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const day = today.getDate();
+
+    //declaring a list of all months in  a year
+    const monthList = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    //get current date and time
+    const date = monthList[month] + " " + day + ", " + year;
+    const time = hourTime + ":" + minute + ":" + second + " " + ampm;
+
+    //combine current date and time
+    const dateTime = time;
+
+    //print current date and time to the DOM
+    document.getElementById("date-time").innerHTML = dateTime;
+    setTimeout(clock, 1000);
+  }
+});
+// END REALTIME CLOCK IN PRIMARY SECTION
       let slideIndex = 0;
       const slides = document.querySelector(".slides");
       const dots = document.querySelectorAll(".dot");
@@ -304,7 +332,7 @@
           slideIndex = 0;
         }
 
-        setTimeout(showSlides, 2000); // Change image every 3 seconds
+        setTimeout(showSlides, 3500); // Change image every 3 seconds
       }
 
       function currentSlide(n) {
